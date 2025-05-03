@@ -1,5 +1,6 @@
 <?php
 use PHPUnit\Framework\TestCase;
+//** @var \Composer\Autoload\ClassLoader $loader */
 
 require_once __DIR__ . '/../Backend/services/UserService.php';
 require_once __DIR__ . '/../Backend/services/OrdersService.php';
