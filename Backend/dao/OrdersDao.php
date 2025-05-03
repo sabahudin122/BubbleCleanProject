@@ -13,12 +13,13 @@ class OrderDao extends BaseDao {
         return $stmt->fetchAll();
     }
 
-    public function  addOrder ($data) {
+    public function add($data) {
         $columns = implode(", ", array_keys($data));
         $placeholders = ":" . implode(", :", array_keys($data));
-        $sql = "INSERT INTO orders ($columns) VALUES ($placeholders)";
+        $sql = "INSERT INTO " . $this->table . " ($columns) VALUES ($placeholders)";
         $stmt = $this->connection->prepare($sql);
-        return $stmt->execute($data);
+        $stmt->execute($data);
+        return $this->connection->lastInsertId();
     }
     
     public function updateOrder ($id, $data) {
