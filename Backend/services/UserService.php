@@ -47,5 +47,3 @@ class UserService extends BaseService {
     }
 }
 ?>
-
-//
