@@ -24,5 +24,10 @@ class Database {
         }
         return self::$connection;
     }
+    // JWT Secret Key Definition
+public static function JWT_SECRET() {
+    return '123456789abcdefg';
+}
+
 }
 ?>

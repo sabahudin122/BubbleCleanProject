@@ -129,7 +129,7 @@ UNLOCK TABLES;
 
 --
 -- Table structure for table `users`
---
+--sabke
 
 DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;

@@ -28,7 +28,8 @@ class BaseDao {
         $placeholders = ":" . implode(", :", array_keys($data));
         $sql = "INSERT INTO " . $this->table . " ($columns) VALUES ($placeholders)";
         $stmt = $this->connection->prepare($sql);
-        return $stmt->execute($data);
+        $stmt->execute($data);
+        return $this->connection->lastInsertId();
     }
 
     public function update($id, $data) {
@@ -47,6 +48,12 @@ class BaseDao {
         $stmt = $this->connection->prepare("DELETE FROM " . $this->table . " WHERE id = :id");
         $stmt->bindParam(':id', $id);
         return $stmt->execute();
+    }
+
+    public function query_unique($query, $params) {
+        $stmt = $this->connection->prepare($query);
+        $stmt->execute($params);
+        return $stmt->fetch();
     }
 }
 ?>
